@@ -1,4 +1,5 @@
 from Crypto.Util.number import *
+from math import *
 p = getPrime(2048)
 q = getPrime(2048)
 n = p * q
@@ -10,7 +11,7 @@ while msb < test:
     msb *= 2
 if msb > test:
     n_log -= 1
-while n_log != 4095:
+while n_log != 4095 or gcd(65537, (p - 1) * (q - 1)) != 1:
     p = getPrime(2048)
     q = getPrime(2048)
     n = p * q
